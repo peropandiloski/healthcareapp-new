@@ -1,0 +1,85 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #ebebeb;
+
+}
+
+a {
+  color: #00B7FF;
+}
+
+.logo-text{
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffffff;
+  font-family: Montserrat;
+  text-shadow: 1px 1px #6e6e6e;
+}
+
+.care-txt{
+  color:#32a8a2;
+}
+
+.create-form{
+  padding:10px;
+}
+
+.doctor-container{
+  background-image: url("https://www.mxmed.eu/modules/mod_bt_backgroundslideshow/images/original/c3c6d80700e99837dfd26d35b80a152f.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.head-title{
+  color: black;
+  font-family: 'Montserrat', sans-serif;
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.4);
+  position: relative; 
+}
+
+.test{
+  background-image: url("../images/logo.png");
+  background-size: cover;
+  width: 80px;
+  height:60px;
+  margin-right: 10px;
+  padding:10px;
+  
+}
+
+.add-button{
+  display: block;
+  width: 12rem;
+  text-align: center;
+  margin-left: 7.5rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  background-color: #126888;
+  border: none;
+  color: #ffffff;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+  line-height:3.3;
+
+}
+
+.add-button:hover {
+  background-color: #0d6180;
+  box-shadow: 0px 15px 20px rgba(179, 234, 255);
+  color: #fff;
+  font-weight: bold;
+  transform: translateY(-7px);
+}
+
+.chart-one{
+  background-color: #ffffff;
+  width:500px;
+  height:500px;
+  
+}
+

@@ -1,0 +1,61 @@
+
+
+<p class="text-4xl text-center font-bold m-14 head-title">Patients</p>
+
+<table class="rounded-t-lg m-5 w-5/6 mx-auto bg-gray-800 text-gray-200">
+    <div class="max-w-sm rounded overflow-hidden shadow-lg">
+        <img class="w-full" src="https://www.pngrepo.com/download/284250/surgeon-doctor.png" alt="Doctor">
+        <div class="px-6 py-4">
+          <div class="font-bold text-xl mb-2"><%= doctors.full_name %></div>
+          <p class="text-gray-700 text-base">
+            <%= doctors.specialization %>
+          </p>
+          <p class="text-gray-700 text-base">
+            <%= doctors.licence_number %>
+          </p>
+          <p class="text-gray-700 text-base">
+            <%= doctor.city %>
+          </p>
+        </div>
+      </div>
+    </div>
+  <tr class="text-left border-b border-gray-300">
+    <th class="px-4 py-3">Full Name</th>
+    <th class="px-4 py-3">City</th>
+    <th class="px-4 py-3">Age</th>
+    <th class="px-4 py-3">Gender</th>
+    <th class="px-4 py-3">Phone Number</th>
+    <th class="px-4 py-3">Action</th>
+    
+  </tr>
+  <% patients.forEach(patient => { %>
+    <% if (doctors._id.equals(patient.doctor)) { %>
+
+    
+  <tr class="bg-gray-700 border-b border-gray-600 hover:bg-gray-500">
+    <td class="px-4 py-3"><%= patient.full_name %></td>
+    <td class="px-4 py-3"><%= patient.city %></td>
+    <td class="px-4 py-3"><%= patient.age %></td>
+    <td class="px-4 py-3"><%= patient.gender %></td>
+    <td class="px-4 py-3"><%= patient.phone_number %></td>
+    
+    <td>
+      <a href="/patients/<%= patient._id %>" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-full">
+        Edit
+      </a>
+      <button type="button" href="/patients/<%= patient._id %>" onclick="deletePatient(`<%= patient._id %>`)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full mx-2">
+        Delete
+      </button>
+    </td>
+   
+
+  </tr> 
+  <% } else { %> 
+    <% } 
+  %> <% }) 
+%>
+</table>
+
+
+
+

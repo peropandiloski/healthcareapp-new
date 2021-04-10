@@ -1,0 +1,36 @@
+<p class="text-4xl text-center font-bold m-14 head-title">Doctors</p>
+
+<table class="rounded-t-lg m-5 w-5/6 mx-auto bg-gray-800 text-gray-200">
+  <a href="/doctors/create" class="add-button">Add</a>
+  <tr class="text-left border-b border-gray-300">
+    <th class="px-4 py-3">Licence No</th>
+    <th class="px-4 py-3">Name</th>
+    <th class="px-4 py-3">Specialization</th>
+    <th class="px-4 py-3">City</th>
+    <th class="px-4 py-3">Action</th>
+    
+  </tr>
+  <% doctors.forEach(doctor => { %>
+  <tr class="bg-gray-700 border-b border-gray-600 hover:bg-gray-500">
+    <td class="px-4 py-3"><%= doctor.licence_number %></td>
+    <td class="px-4 py-3"><%= doctor.full_name %></td>
+    <td class="px-4 py-3"><%= doctor.specialization %></td>
+    <td class="px-4 py-3"><%= doctor.city %></td>
+    <td>
+      <a href="/doctors/<%= doctor._id %>" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-full">
+        Edit
+      </a>
+      <button type="button" href="/doctors/<%= doctor._id %>" onclick="deleteDoctor(`<%= doctor._id %>`)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full mx-2">
+        Delete
+      </button>
+      <a href="/doctors/<%= doctor._id %>/patients" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full">Patients</a>
+    </td>
+   
+
+  </tr> 
+  <% }) %>   
+</table>
+
+
+
+
