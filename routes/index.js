@@ -6,7 +6,7 @@ const patientsController = require('../controllers/patients')
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('dashboard/index', { title: 'Express' });
 })
 
   //DOCTORS

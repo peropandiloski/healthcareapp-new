@@ -1,4 +1,6 @@
 const Doctor = require('../models/doctor');
+const Patient = require('../models/patient');
+
 
 module.exports = {
     getAll: async (req, res) => {
@@ -29,8 +31,8 @@ module.exports = {
     },
     postUpdate: async (req, res) => {
         try {
-            await Doctor.findByIdAndUpdate(req.params.id, req.body, { runValidators: true });
-            res.redirect('/doctors');
+            await Doctor.findByIdAndUpdate(req.params.id, req.body, { runValidators: true })
+            res.redirect('/doctors')
         } catch (error) {
             res.render('doctors/update', {
                 ...req.body,
@@ -47,11 +49,12 @@ module.exports = {
             error: false,
             message: `Doctor with id #${req.params.id} removed`
         });
-    },
-    patients: async (req, res) => {
-        // assume try catch
-        const doctor = await Doctor.findOne({ _id: req.params.id }).populate('patients');
-        console.log(doctor);
-        res.render('doctors/patients', { doctor });
+    }, patients: async (req, res) => {
+        const doctor = await Doctor.findById(req.params.id)
+        const patient = await Patient.find()
+        res.render("doctors/patients", {
+            patients: patient,
+            doctors: doctor,
+        });
     }
-};
+}

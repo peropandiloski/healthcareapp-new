@@ -3,25 +3,32 @@ const Doctor = require('../models/doctor');
 
 module.exports = {
     getAll: async (req, res) => {
-        const patients = await Patient.find().populate('doctor');
+        const patients = await Patient.find().populate('doctor')
 
         res.render('patients/index', { patients: patients })
     },
     getOne: async (req, res) => {
-        const patient = await Patient.findById(req.params.id);
-        const doctors = await Doctor.find();
+        const patient = await Patient.findById(req.params.id)
+        const doctors = await Doctor.find()
 
         res.render('patients/update', {
             patient,
             doctors
-        });
-
-
+        })
     },
     create: async (req, res) => {
-        const doctors = await Doctor.find();
-        console.log(doctors)
-        res.render('patients/create', { doctors });
+        // Prv nacin (async, await)
+        const doctors = await Doctor.find()
+        res.render('patients/create', { doctors })
+
+        // Vtor nacin
+
+        // 61 - 64 (bez async, await) go izvrsuva istoto kako 55-56 
+        // Doctor.find()
+        //   .then(doctors => {
+        //     res.render('patients/create', {doctors})
+        //   })
+
     },
     postCreate: async (req, res) => {
         try {
@@ -46,10 +53,9 @@ module.exports = {
             if (req.body.doctor == '') {
                 req.body.doctor = null
             }
-            // patient.doctor = ObjectId(null)
 
-            await Patient.findByIdAndUpdate(req.params.id, req.body, { runValidators: true });
-            res.redirect('/patients');
+            await Patient.findByIdAndUpdate(req.params.id, req.body, { runValidators: true })
+            res.redirect('/patients')
         } catch (error) {
             res.render('patients/update', {
                 ...req.body,
