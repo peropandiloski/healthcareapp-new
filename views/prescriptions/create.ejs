@@ -1,0 +1,69 @@
+      
+    <% if (typeof error != 'undefined') { %>
+        <div class="alert alert-danger" role="alert">
+          <%= error %>
+        </div>
+      <% } %>
+    
+    <div class="font-sans">
+        <div class="relative min-h-screen flex flex-col sm:justify-center items-center bg-gray-100 opacity-95">
+            <div class="relative sm:max-w-sm w-full">
+                <div class="card bg-blue-400 shadow-lg  w-full h-full rounded-3xl absolute  transform -rotate-6"></div>
+                <div class="card bg-red-400 shadow-lg  w-full h-full rounded-3xl absolute  transform rotate-6"></div>
+                <div class="relative w-full rounded-3xl  px-6 py-4 bg-gray-100 shadow-md">
+                    <label for="" class="block text-sm text-gray-700 text-center font-semibold mt-4 head-title">
+                        Prescription Informations
+                    </label>
+                    <form action="/prescription" method="POST" class="mt-10">             
+                        <div>
+                            <div class="box__title bg-grey-lighter px-3 py-2 border-b"><h3 class="text-sm text-grey-darker font-medium">Write Description</h3></div>
+                            <textarea  placeholder="Description..." name="description" class="mt-1 block w-full border-none bg-gray-100 h-11 rounded-xl shadow-lg hover:bg-blue-100 focus:bg-blue-100 focus:ring-0 create-form" id="description">
+                            </textarea>
+                        </div>
+                       
+                        <select class="mt-6 h-10" name="doctor" >
+        <option value="" disabled selected hidden>Select Doctor</option>
+        <% doctors.forEach(doctor => { %>
+          <option value="<%= doctor._id %>"><%= doctor.full_name %></option>
+        <% }) %> 
+      </select>
+       <select class="select-patient form-control ml-9 h-10" name="patient" >
+        <option value="" disabled selected hidden>Select Patient</option>
+        <% patients.forEach(patient => { %>
+          <option value="<%= patient._id %>"><%= patient.full_name %></option>
+        <% }) %> 
+      </select>
+                        
+
+                            <button type="submit" class=" mt-7 bg-blue-500 w-full py-3 rounded-xl text-white shadow-xl hover:shadow-inner focus:outline-none transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
+                                Submit
+                            </button>
+                      
+                        <div class="flex mt-7 items-center text-center">
+                            <hr class="border-gray-300 border-1 w-full rounded-md">
+                            <label class="block font-medium text-sm text-gray-700 w-full">
+                                Health Care App
+                            </label>
+                            <hr class="border-gray-300 border-1 w-full rounded-md">
+                        </div>
+            
+                        <div class="flex mt-7 justify-center w-full">
+                            <a href="/prescription" class="mr-5 bg-gray-500 border-none px-4 py-2 rounded-xl cursor-pointer text-white shadow-xl hover:shadow-inner transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105">
+                                
+                               Close
+                          </a>
+            
+                        </div>
+            
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+    </div> 
+ 
+
+
+
+ 

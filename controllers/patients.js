@@ -1,6 +1,7 @@
 const Patient = require('../models/patient');
 const Doctor = require('../models/doctor');
 
+
 module.exports = {
     getAll: async (req, res) => {
         const patients = await Patient.find().populate('doctor')

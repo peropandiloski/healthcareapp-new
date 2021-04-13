@@ -2,12 +2,12 @@ var express = require('express');
 var router = express.Router();
 const doctorsController = require('../controllers/doctors')
 const patientsController = require('../controllers/patients')
+const prescriptionsController = require('../controllers/prescriptions')
+const dashboardController = require('../controllers/dashboard')
 
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
-  res.render('dashboard/index', { title: 'Express' });
-})
+router.get('/', dashboardController.getAll)
 
   //DOCTORS
   .get("/doctors", doctorsController.getAll)
@@ -25,6 +25,16 @@ router.get('/', function (req, res, next) {
   .post("/patients/:id", patientsController.postUpdate)
   .delete("/patients/:id", patientsController.delete)
   .get('/doctors/:id/patients', doctorsController.patients)
+
+  //Prescriptions
+  .get("/prescription", prescriptionsController.getAll)
+  .get("/prescription/create", prescriptionsController.getOne)
+  .get("/prescription/:id", prescriptionsController.create)
+  .post("/prescription", prescriptionsController.postCreate)
+  .post('/prescription/:id', prescriptionsController.postUpdate)
+  .delete("/prescription/:id", prescriptionsController.delete)
+
+
 
 
 

@@ -1,0 +1,32 @@
+
+<a href="prescription/create" class="add-button button-prescription">Create Prescription</a>
+<div class="grid grid-cols-3 gap-4">
+    <% prescriptions.forEach(prescriptions => { %>
+    <div>
+        <div class="max-w-sm rounded-sm overflow-hidden shadow-lg m-16">
+            <div class="h-64 bg-cover hover:bg-gray" style="background-image: url('https://user-images.githubusercontent.com/5419306/64431443-71823880-d088-11e9-9bd7-1b314f94dc1f.png')"></div>
+            <div class="p-2.5 bg-gray-800 border-b border-gray-light text-white">
+                <div class="font-medium text-base text-gray-darker mb-4">Prescription Information</div>
+                <p class="font-normal text-gray-dark text-sm mb-4 border-b-2 border-double">
+                    <span class="care-txt font-bold">Description:</span> <%= prescriptions.description %>
+                </p>
+                <p class="font-normal text-gray-dark text-sm mb-4 border-b-2 border-double">
+                    <span class="care-txt font-bold">Doctor:</span> Dr.<%=  prescriptions.doctor.full_name %> - <%= prescriptions.doctor.specialization %>
+                </p>
+                <p class="font-normal text-gray-dark text-sm mb-4 border-b-2 border-double">
+                    <span class="care-txt font-bold">Patient:</span> <%= prescriptions.patient.full_name  %>
+                </p> 
+            </div>
+              
+                <a href="/prescription/<%= prescriptions._id %>" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded-full float-left mt-2 mb-2 ml-2 animate-button">
+                    Edit
+                </a>
+                <button type="button" href="/prescriptions/<%= prescriptions._id %>" onclick="deletePrescription(`<%= prescriptions._id %>`)" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full mx-2 float-right mt-2 mb-2 mr-2">
+                    Delete
+                </button> 
+            
+           
+        </div>
+    </div>
+    <% }) %>
+</div>
